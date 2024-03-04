@@ -6,19 +6,15 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.cpp
+Personne.h
 C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.h
-string
--
-
-C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/main.cpp
-locale
--
-io.h
--
-fcntl.h
+utility
 -
 iostream
 -
-Personne.h
+
 C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.h
+string
+-
 

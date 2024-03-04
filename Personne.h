@@ -21,7 +21,10 @@ public:
 
     ~Personne();
 
-    [[noreturn]] void afficher() const;
+    // Fonction amie pour surcharger l'opérateur de sortie
+    friend std::ostream& operator<<(std::ostream& os, const Personne& personne);
+
+    [[noreturn]] void afficher(bool i = false) const;
 
 private:
     std::string nom;

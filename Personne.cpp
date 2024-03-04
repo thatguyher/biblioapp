@@ -38,17 +38,32 @@ Personne::~Personne() {
     // Destructeur
 }
 
-[[noreturn]] void Personne::afficher() const {
-    std::cout << "|=== PERSONNE ===================================" << "\n";
-    std::cout << "|-> Nom: " << nom << "\n";
-    std::cout << "|-> Prénom: " << prenom << "\n";
-    std::cout << "|-> Date de naissance: " << dateNaissance << "\n";
-    std::cout << "|-> Numéro de téléphone: " << numeroTelephone << "\n";
-    std::cout << "|-> Adresse de résidence: " << adresseResidence << "\n";
-    std::cout << "|=================================================" << "\n";
+[[noreturn]] void Personne::afficher(bool i) const {
+    if (i){
+        std::cout << "      |=== PERSONNE ===================================" << "\n";
+        std::cout << "      |-> Nom: " << nom << "\n";
+        std::cout << "      |-> Prénom: " << prenom << "\n";
+        std::cout << "      |-> Date de naissance: " << dateNaissance << "\n";
+        std::cout << "      |-> Numéro de téléphone: " << numeroTelephone << "\n";
+        std::cout << "      |-> Adresse de résidence: " << adresseResidence << "\n";
+        std::cout << "      |=================================================" << "\n";
+    } else {
+        std::cout << "|=== PERSONNE ===================================" << "\n";
+        std::cout << "|-> Nom: " << nom << "\n";
+        std::cout << "|-> Prénom: " << prenom << "\n";
+        std::cout << "|-> Date de naissance: " << dateNaissance << "\n";
+        std::cout << "|-> Numéro de téléphone: " << numeroTelephone << "\n";
+        std::cout << "|-> Adresse de résidence: " << adresseResidence << "\n";
+        std::cout << "|=================================================" << "\n";
+    }
 
     if (personneAPrevenirEnCasDeBesoin != nullptr) {
         std::cout << "Personne à prévenir en cas de besoin:\n";
-        personneAPrevenirEnCasDeBesoin->afficher();
+        personneAPrevenirEnCasDeBesoin->afficher(true);
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Personne& personne) {
+    personne.afficher(); // Utilisation de la méthode afficher pour l'opérateur <<
+    return os;
 }
