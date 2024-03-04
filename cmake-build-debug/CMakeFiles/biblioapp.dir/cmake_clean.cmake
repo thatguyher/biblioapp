@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/biblioapp.dir/Emprunt.cpp.obj"
+  "CMakeFiles/biblioapp.dir/Emprunt.cpp.obj.d"
   "CMakeFiles/biblioapp.dir/Etudiant.cpp.obj"
   "CMakeFiles/biblioapp.dir/Etudiant.cpp.obj.d"
   "CMakeFiles/biblioapp.dir/Livre.cpp.obj"

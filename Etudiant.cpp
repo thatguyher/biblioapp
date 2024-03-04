@@ -25,8 +25,7 @@ Etudiant::Etudiant(const Etudiant &autre)
         : Personne(autre),
           numeroMatricule(autre.numeroMatricule),
           classe(autre.classe),
-          filiere(autre.filiere),
-          livresEmpruntes(autre.livresEmpruntes) {
+          filiere(autre.filiere) {
 }
 
 void Etudiant::afficher() const {
@@ -61,6 +60,34 @@ std::ostream &operator<<(std::ostream &os, const Etudiant &etudiant) {
     return os;
 }
 
-int Etudiant::emprunterLivre(Livre& livre, std::string dateRetour) {
-    return livre.emprunter(std::move(dateRetour));
+const std::string &Etudiant::getNumeroMatricule() const {
+    return numeroMatricule;
+}
+
+void Etudiant::setNumeroMatricule(const std::string &numeroMatricule) {
+    Etudiant::numeroMatricule = numeroMatricule;
+}
+
+const std::string &Etudiant::getClasse() const {
+    return classe;
+}
+
+void Etudiant::setClasse(const std::string &classe) {
+    Etudiant::classe = classe;
+}
+
+const std::string &Etudiant::getFiliere() const {
+    return filiere;
+}
+
+void Etudiant::setFiliere(const std::string &filiere) {
+    Etudiant::filiere = filiere;
+}
+
+const std::string &Etudiant::getId() const {
+    return id;
+}
+
+void Etudiant::setId(const std::string &id) {
+    Etudiant::id = id;
 }

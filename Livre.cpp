@@ -29,6 +29,64 @@ Livre::Livre(const Livre &autre)
           dateDernierEmprunt(autre.dateDernierEmprunt),
           dateRetour(autre.dateRetour) {}
 
+// getters
+std::string Livre::getAuteur() const {
+    return auteur;
+}
+
+std::string Livre::getTitre() const {
+    return titre;
+}
+
+bool Livre::isDisponible() const {
+    return disponible;
+}
+
+std::string Livre::getEtat() const {
+    return etat;
+}
+
+std::string Livre::getDateCreation() const {
+    return dateCreation;
+}
+
+std::string Livre::getDateDernierEmprunt() const {
+    return dateDernierEmprunt;
+}
+
+std::string Livre::getDateRetour() const {
+    return dateRetour;
+}
+
+// Setters
+void Livre::setAuteur(const std::string& aAuteur) {
+    auteur = aAuteur;
+}
+
+void Livre::setTitre(const std::string& aTitre) {
+    titre = aTitre;
+}
+
+void Livre::setDisponible(bool aDisponible) {
+    disponible = aDisponible;
+}
+
+void Livre::setEtat(const std::string& aEtat) {
+    etat = aEtat;
+}
+
+void Livre::setDateCreation(const std::string& aDateCreation) {
+    dateCreation = aDateCreation;
+}
+
+void Livre::setDateDernierEmprunt(const std::string& aDateDernierEmprunt) {
+    dateDernierEmprunt = aDateDernierEmprunt;
+}
+
+void Livre::setDateRetour(const std::string& aDateRetour) {
+    dateRetour = aDateRetour;
+}
+
 void Livre::afficher() const {
     std::cout << "\n|=== LIVRE" << "\n";
     std::cout << "|-> ID: " << "LVR46479778" << "\n";
@@ -48,17 +106,17 @@ std::ostream &operator<<(std::ostream &os, const Livre &livre) {
     return os;
 }
 
-int Livre::emprunter(std::string retourDate) {
+int Livre::emprunter(std::string emprundId, std::string retourDate) {
     if (disponible && etat == ETAT_EXPLOITABLE) {
+        IdEmprunt = emprundId;
         disponible = false;
         dateDernierEmprunt = getCurrentDate();
         dateRetour = std::move(retourDate);
-        //TODO: Creer une instance d'emprunt et mettre l'état à 1
-        return 0;
+        return 0; // Ok
     } else if (!disponible) {
-        return 1;
+        return 1; // Non disponible
     } else {
-        return 2;
+        return 2; // Non exploitable
     }
 }
 
@@ -66,9 +124,24 @@ int Livre::retourner() {
     if (!disponible) {
         disponible = true;
         dateRetour = getCurrentDate();
-        //TODO: Mettre l'etat de l'emprunt à 0
         return 0;
     } else {
         return 1;
     }
+}
+
+const std::string &Livre::getIdEmprunt() const {
+    return IdEmprunt;
+}
+
+void Livre::setIdEmprunt(const std::string &idEmprunt) {
+    IdEmprunt = idEmprunt;
+}
+
+const std::string &Livre::getId() const {
+    return id;
+}
+
+void Livre::setId(const std::string &id) {
+    Livre::id = id;
 }

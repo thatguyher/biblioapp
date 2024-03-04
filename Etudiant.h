@@ -21,14 +21,28 @@ public:
 
     void afficher() const;
 
-    // Méthode pour emprunter un livre
-    int emprunterLivre(Livre& livre, std::string dateRetour);
+    const std::string &getNumeroMatricule() const;
+
+    void setNumeroMatricule(const std::string &numeroMatricule);
+
+    const std::string &getClasse() const;
+
+    void setClasse(const std::string &classe);
+
+    const std::string &getFiliere() const;
+
+    void setFiliere(const std::string &filiere);
+
+    const std::string &getId() const;
+
+    void setId(const std::string &id);
+
 
 private:
     std::string numeroMatricule;
     std::string classe;
     std::string filiere;
-    std::vector<Livre> livresEmpruntes;
+    std::string id;
 };
 
 #endif //BIBLIOAPP_ETUDIANT_H

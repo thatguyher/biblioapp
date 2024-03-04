@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"/>
+				<Option working_dir="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="biblioapp">
-				<Option output="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/biblioapp.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"/>
+				<Option output="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/biblioapp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 biblioapp"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 biblioapp"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="biblioapp/fast">
-				<Option output="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/biblioapp.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"/>
+				<Option output="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/biblioapp.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,61 +55,67 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 biblioapp/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 biblioapp/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"/>
+				<Option working_dir="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"/>
+				<Option working_dir="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~2.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Etudiant.cpp">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Emprunt.cpp">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Etudiant.h">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Emprunt.h">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Livre.cpp">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Etudiant.cpp">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Livre.h">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Etudiant.h">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Personne.cpp">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Livre.cpp">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Personne.h">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Livre.h">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/main.cpp">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.cpp">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/utils.cpp">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.h">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/utils.h">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/main.cpp">
 			<Option target="biblioapp"/>
 		</Unit>
-		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/CMakeLists.txt">
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/utils.cpp">
+			<Option target="biblioapp"/>
+		</Unit>
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/utils.h">
+			<Option target="biblioapp"/>
+		</Unit>
+		<Unit filename="C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

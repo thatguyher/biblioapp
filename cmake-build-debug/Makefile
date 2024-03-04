@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\User\Documents\danyl\biblioapp
+CMAKE_SOURCE_DIR = C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\cmake-build-debug\CMakeFiles C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ biblioapp: cmake_check_build_system
 biblioapp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/build
 .PHONY : biblioapp/fast
+
+Emprunt.obj: Emprunt.cpp.obj
+.PHONY : Emprunt.obj
+
+# target to build an object file
+Emprunt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/Emprunt.cpp.obj
+.PHONY : Emprunt.cpp.obj
+
+Emprunt.i: Emprunt.cpp.i
+.PHONY : Emprunt.i
+
+# target to preprocess a source file
+Emprunt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/Emprunt.cpp.i
+.PHONY : Emprunt.cpp.i
+
+Emprunt.s: Emprunt.cpp.s
+.PHONY : Emprunt.s
+
+# target to generate assembly for a file
+Emprunt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/Emprunt.cpp.s
+.PHONY : Emprunt.cpp.s
 
 Etudiant.obj: Etudiant.cpp.obj
 .PHONY : Etudiant.obj
@@ -257,6 +281,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... biblioapp
+	@echo ... Emprunt.obj
+	@echo ... Emprunt.i
+	@echo ... Emprunt.s
 	@echo ... Etudiant.obj
 	@echo ... Etudiant.i
 	@echo ... Etudiant.s

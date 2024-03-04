@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Personne.h"
 #include "Etudiant.h"
+#include "Emprunt.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -22,10 +24,10 @@ int main() {
 //    // Affichage des détails de la personne Pluto en invoquant l'opérateur <<
 //    std::cout << personne2;
 //
-//// Création d'un étudiant
-//    Etudiant etudiant1("Doe", "John", "01/01/1995", "123456789", "123 Main Street", nullptr,
-//                       "2021001", "Informatique", "Licence");
-//
+// Création d'un étudiant
+    Etudiant etudiant1("Doe", "John", "01/01/1995", "123456789", "123 Main Street", nullptr,
+                       "2021001", "Informatique", "Licence");
+
 //// Création d'un étudiant
 //    Etudiant etudiant2("Doe", "John", "01/01/1995", "123456789", "123 Main Street", &personne1,
 //                       "2021001", "Informatique", "Licence");
@@ -34,10 +36,14 @@ int main() {
 //    std::cout << etudiant1;
 //    std::cout << etudiant2;
 
-    Livre book1;
+//    Livre book1;
     Livre book2("George Orwell", "1984");
-    std::cout << book1;
-    std::cout << book2;
+//    std::cout << book1;
+//    std::cout << book2;
+
+// Declare an instance of Emprunt
+
+    preter(&etudiant1,&book2, "2024-12-31");
 
     return 0;
 }
