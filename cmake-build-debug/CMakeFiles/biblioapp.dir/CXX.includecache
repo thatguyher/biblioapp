@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.h
+string
+-
+
+C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/main.cpp
+locale
+-
+io.h
+-
+fcntl.h
+-
+iostream
+-
+Personne.h
+C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/Personne.h
+
