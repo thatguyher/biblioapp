@@ -3,4 +3,6 @@ project(biblioapp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(biblioapp main.cpp Personnage.cpp Personnage.h Personne.cpp Personne.h)
+add_executable(biblioapp main.cpp Personne.cpp Personne.h Livre.cpp Livre.h Etudiant.cpp Etudiant.h
+        utils.h
+        utils.cpp)

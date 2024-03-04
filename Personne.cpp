@@ -25,45 +25,55 @@ Personne::Personne(const Personne& autre)
     // Implémentation du constructeur de copie
 }
 
-// Constructeur de déplacement
-Personne::Personne(Personne&& autre) noexcept
-        : nom(std::move(autre.nom)), prenom(std::move(autre.prenom)), dateNaissance(std::move(autre.dateNaissance)),
-          numeroTelephone(std::move(autre.numeroTelephone)), adresseResidence(std::move(autre.adresseResidence)),
-          personneAPrevenirEnCasDeBesoin(autre.personneAPrevenirEnCasDeBesoin) {
-    autre.personneAPrevenirEnCasDeBesoin = nullptr; // L'autre objet n'a plus de personne à prévenir
-    // Implémentation du constructeur de déplacement
+
+// Getters
+std::string Personne::getNom() const {
+    return nom;
 }
 
-Personne::~Personne() {
-    // Destructeur
+std::string Personne::getPrenom() const {
+    return prenom;
 }
 
-[[noreturn]] void Personne::afficher(bool i) const {
-    if (i){
-        std::cout << "      |=== PERSONNE ===================================" << "\n";
-        std::cout << "      |-> Nom: " << nom << "\n";
-        std::cout << "      |-> Prénom: " << prenom << "\n";
-        std::cout << "      |-> Date de naissance: " << dateNaissance << "\n";
-        std::cout << "      |-> Numéro de téléphone: " << numeroTelephone << "\n";
-        std::cout << "      |-> Adresse de résidence: " << adresseResidence << "\n";
-        std::cout << "      |=================================================" << "\n";
-    } else {
-        std::cout << "|=== PERSONNE ===================================" << "\n";
-        std::cout << "|-> Nom: " << nom << "\n";
-        std::cout << "|-> Prénom: " << prenom << "\n";
-        std::cout << "|-> Date de naissance: " << dateNaissance << "\n";
-        std::cout << "|-> Numéro de téléphone: " << numeroTelephone << "\n";
-        std::cout << "|-> Adresse de résidence: " << adresseResidence << "\n";
-        std::cout << "|=================================================" << "\n";
-    }
+std::string Personne::getDateNaissance() const {
+    return dateNaissance;
+}
 
+std::string Personne::getNumeroTelephone() const {
+    return numeroTelephone;
+}
+
+std::string Personne::getAdresseResidence() const {
+    return adresseResidence;
+}
+
+Personne* Personne::getPersonneAPrevenirEnCasDeBesoin() const {
+    return personneAPrevenirEnCasDeBesoin;
+}
+
+// Metier
+void Personne::afficher() const {
+    std::cout << "\n|=== PERSONNE" << "\n";
+    std::cout << "|-> ID: " << "PER46479778" << "\n";
+    std::cout << "|" << "\n";
+    std::cout << "|-> Nom: " << nom << "\n";
+    std::cout << "|-> Prenom: " << prenom << "\n";
+    std::cout << "|-> Date de naissance: " << dateNaissance << "\n";
+    std::cout << "|-> Numero de telephone: " << numeroTelephone << "\n";
+    std::cout << "|-> Adresse de residence: " << adresseResidence << "\n";
     if (personneAPrevenirEnCasDeBesoin != nullptr) {
-        std::cout << "Personne à prévenir en cas de besoin:\n";
-        personneAPrevenirEnCasDeBesoin->afficher(true);
+        std::cout << "|" << "\n";
+        std::cout << "|=== Personne a prevenir en cas de besoin ===|\n";
+        std::cout << "|-> Nom: " << personneAPrevenirEnCasDeBesoin->getNom() << "\n";
+        std::cout << "|-> Prenom: " << personneAPrevenirEnCasDeBesoin->getPrenom() << "\n";
+        std::cout << "|-> Date de naissance: " << personneAPrevenirEnCasDeBesoin->getDateNaissance() << "\n";
+        std::cout << "|-> Numero de telephone: " << personneAPrevenirEnCasDeBesoin->getNumeroTelephone() << "\n";
+        std::cout << "|-> Adresse de residence: " << personneAPrevenirEnCasDeBesoin->getAdresseResidence() << "\n";
     }
+    std::cout << "|===\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Personne& personne) {
-    personne.afficher(); // Utilisation de la méthode afficher pour l'opérateur <<
+    personne.afficher();
     return os;
 }

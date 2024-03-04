@@ -1,6 +1,3 @@
-//
-// Created by BRAD on 04/03/2024.
-//
 
 #ifndef BIBLIOAPP_PERSONNE_H
 #define BIBLIOAPP_PERSONNE_H
@@ -16,17 +13,22 @@ public:
              Personne* personneAPrevenirEnCasDeBesoin);
     // Constructeur de copie
     Personne(const Personne& autre);
-    // Constructeur de déplacement
-    Personne(Personne&& autre) noexcept;
-
-    ~Personne();
 
     // Fonction amie pour surcharger l'opérateur de sortie
     friend std::ostream& operator<<(std::ostream& os, const Personne& personne);
 
-    [[noreturn]] void afficher(bool i = false) const;
+    // Getters
+    // Declare the getters
+    std::string getNom() const;
+    std::string getPrenom() const;
+    std::string getDateNaissance() const;
+    std::string getNumeroTelephone() const;
+    std::string getAdresseResidence() const;
+    Personne* getPersonneAPrevenirEnCasDeBesoin() const;
 
-private:
+    void afficher() const;
+
+protected:
     std::string nom;
     std::string prenom;
     std::string dateNaissance;
