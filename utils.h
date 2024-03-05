@@ -6,6 +6,6 @@
 
 std::string getCurrentDate();
 
-int preter(Etudiant* etudiant, Livre* livre, const std::string& date);
+Emprunt preter(Etudiant* etudiant, Livre* livre, const std::string& date);
 
 #endif //BIBLIOAPP_UTILS_H

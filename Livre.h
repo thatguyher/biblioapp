@@ -16,6 +16,10 @@ public:
     // Constructeur de copie
     Livre(const Livre &autre);
 
+    static void loadLastLivreNr();
+    static void saveLastLivreNr();
+    static int lastLivreNr;
+
     // Getters
     std::string getAuteur() const;
     std::string getTitre() const;

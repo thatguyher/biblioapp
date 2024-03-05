@@ -16,6 +16,10 @@ public:
     // Constructeur de copie
     Etudiant(const Etudiant& autre);
 
+    static void loadLastEtudiantNr();
+    static void saveLastEtudiantNr();
+    static int lastEtudiantNr;
+
     // Surcharge de l'opérateur <<
     friend std::ostream& operator<<(std::ostream& os, const Etudiant& etudiant);
 

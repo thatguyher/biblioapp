@@ -145,4 +145,9 @@ CMakeFiles/biblioapp.dir/Livre.cpp.obj: \
  C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\utils.h \
  C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Emprunt.h \
  C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Etudiant.h \
- C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.h
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc

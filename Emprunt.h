@@ -9,6 +9,7 @@ class Emprunt {
 public:
     Emprunt();
     Emprunt(std::string idEtudiant, std::string idLivre, std::string  aDateRetour);
+
     static void loadLastEmpruntNr();
     static void saveLastEmpruntNr();
 

@@ -3,6 +3,7 @@
 
 #include <utility>
 #include <fstream>
+
 const std::string FILE_LAST_EMPRUNT_NR = "lastEmpruntNr.txt";
 const std::string FILE_EMPRUNTS = "emprunts_file.danyl";
 int Emprunt::lastEmpruntNr = 0;
@@ -166,7 +167,6 @@ void Emprunt::afficher() const {
     std::cout << "|-> Etudiant: " << etudiantId << "\n";
     std::cout << "|-> Livre: " << livreId << "\n";
     std::cout << "|-> Date d'emprunt: " << dateEmprunt << "\n";
-    std::cout << "|-> Date de retour: " << dateRetour << "\n";
     std::cout << "|-> Date de retour: " << dateRetour << "\n";
     std::cout << "|-> Statut: " << (estRetourne == 1 ? "Rendu" : "Non rendu")  << "\n";
     std::cout << "|===\n";

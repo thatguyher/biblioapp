@@ -3,8 +3,21 @@
 #include "Etudiant.h"
 #include "Livre.h"
 
+#include <fstream>
+
+const std::string FILE_LAST_ETUDIANT_NR = "lastEtudiantNr.txt";
+int Etudiant::lastEtudiantNr = 0;
+
 Etudiant::Etudiant()
         : numeroMatricule(""), classe(""), filiere("") {
+    loadLastEtudiantNr();
+    lastEtudiantNr++;
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastEtudiantNr);
+
+    // Create ID in format "ETD" + 4 digit number
+    id = "ETD" + std::string(empruntNr);
+    saveLastEtudiantNr();
 }
 
 Etudiant::Etudiant(std::string nom, std::string prenom, std::string dateNaissance,
@@ -18,6 +31,14 @@ Etudiant::Etudiant(std::string nom, std::string prenom, std::string dateNaissanc
                    std::move(adresseResidence),
                    personneAPrevenirEnCasDeBesoin),
           numeroMatricule(std::move(numeroMatricule)), classe(std::move(classe)), filiere(std::move(filiere)) {
+    loadLastEtudiantNr();
+    lastEtudiantNr++;
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastEtudiantNr);
+
+    // Create ID in format "ETD" + 4 digit number
+    id = "ETD" + std::string(empruntNr);
+    saveLastEtudiantNr();
 }
 
 // Constructeur de copie
@@ -26,11 +47,19 @@ Etudiant::Etudiant(const Etudiant &autre)
           numeroMatricule(autre.numeroMatricule),
           classe(autre.classe),
           filiere(autre.filiere) {
+    loadLastEtudiantNr();
+    lastEtudiantNr++;
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastEtudiantNr);
+
+    // Create ID in format "ETD" + 4 digit number
+    id = "ETD" + std::string(empruntNr);
+    saveLastEtudiantNr();
 }
 
 void Etudiant::afficher() const {
     std::cout << "\n|=== ETUDIANT" << "\n";
-    std::cout << "|-> ID: " << "ETD46479778" << "\n";
+    std::cout << "|-> ID: " << id << "\n";
     std::cout << "|" << "\n";
     std::cout << "|=== Informations personnelles ===|" << "\n";
     std::cout << "|-> Nom: " << nom << "\n";
@@ -90,4 +119,20 @@ const std::string &Etudiant::getId() const {
 
 void Etudiant::setId(const std::string &id) {
     Etudiant::id = id;
+}
+
+void Etudiant::loadLastEtudiantNr() {
+    std::ifstream infile(FILE_LAST_ETUDIANT_NR);
+    if (infile.good()) {
+        infile >> lastEtudiantNr;
+    }
+    infile.close();
+}
+
+void Etudiant::saveLastEtudiantNr() {
+    std::ofstream outfile(FILE_LAST_ETUDIANT_NR);
+    if (outfile.good()) {
+        outfile << lastEtudiantNr;
+    }
+    outfile.close();
 }

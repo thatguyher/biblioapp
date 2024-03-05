@@ -39,11 +39,14 @@ int main() {
 //    Livre book1;
     Livre book2("George Orwell", "1984");
 //    std::cout << book1;
-//    std::cout << book2;
+    std::cout << book2;
 
 // Declare an instance of Emprunt
 
     preter(&etudiant1,&book2, "2024-12-31");
+
+
+    std::cout << book2;
 
     return 0;
 }

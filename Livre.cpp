@@ -3,13 +3,29 @@
 #include <utility>
 #include "utils.h"
 
+#include <fstream>
+
+const std::string FILE_LAST_LIVRE_NR = "lastLivreNr.txt";
+int Livre::lastLivreNr = 0;
+
+
 const std::string ETAT_EXPLOITABLE = "Exploitable";
 const std::string ETAT_NON_EXPLOITABLE = "Non exploitable";
 
 // Constructeur par défaut
 Livre::Livre() : disponible(true),
                  etat(ETAT_NON_EXPLOITABLE),
-                 dateCreation(getCurrentDate()) {}
+                 dateCreation(getCurrentDate()) {
+    loadLastLivreNr();
+    lastLivreNr++;
+
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastLivreNr);
+
+    // Create ID in format "LVR" + 4 digit number
+    id = "LVR" + std::string(empruntNr);
+    saveLastLivreNr();
+}
 
 // Constructeur avec paramètres
 Livre::Livre(std::string auteur, std::string titre)
@@ -17,7 +33,17 @@ Livre::Livre(std::string auteur, std::string titre)
           titre(std::move(titre)),
           disponible(true),
           etat(ETAT_EXPLOITABLE),
-          dateCreation(getCurrentDate()) {}
+          dateCreation(getCurrentDate()) {
+    loadLastLivreNr();
+    lastLivreNr++;
+
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastLivreNr);
+
+    // Create ID in format "LVR" + 4 digit number
+    id = "LVR" + std::string(empruntNr);
+    saveLastLivreNr();
+}
 
 // Constructeur de copie
 Livre::Livre(const Livre &autre)
@@ -27,7 +53,17 @@ Livre::Livre(const Livre &autre)
           etat(autre.etat),
           dateCreation(autre.dateCreation),
           dateDernierEmprunt(autre.dateDernierEmprunt),
-          dateRetour(autre.dateRetour) {}
+          dateRetour(autre.dateRetour) {
+    loadLastLivreNr();
+    lastLivreNr++;
+
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastLivreNr);
+
+    // Create ID in format "LVR" + 4 digit number
+    id = "LVR" + std::string(empruntNr);
+    saveLastLivreNr();
+}
 
 // getters
 std::string Livre::getAuteur() const {
@@ -89,7 +125,7 @@ void Livre::setDateRetour(const std::string& aDateRetour) {
 
 void Livre::afficher() const {
     std::cout << "\n|=== LIVRE" << "\n";
-    std::cout << "|-> ID: " << "LVR46479778" << "\n";
+    std::cout << "|-> ID: " << id << "\n";
     std::cout << "|" << "\n";
     std::cout << "|-> Auteur: " << auteur << "\n";
     std::cout << "|-> Titre: " << titre << "\n";
@@ -144,4 +180,20 @@ const std::string &Livre::getId() const {
 
 void Livre::setId(const std::string &id) {
     Livre::id = id;
+}
+
+void Livre::loadLastLivreNr() {
+    std::ifstream infile(FILE_LAST_LIVRE_NR);
+    if (infile.good()) {
+        infile >> lastLivreNr;
+    }
+    infile.close();
+}
+
+void Livre::saveLastLivreNr() {
+    std::ofstream outfile(FILE_LAST_LIVRE_NR);
+    if (outfile.good()) {
+        outfile << lastLivreNr;
+    }
+    outfile.close();
 }
