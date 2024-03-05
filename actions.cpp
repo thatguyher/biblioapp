@@ -74,7 +74,8 @@ void listerEmprunteurs(const std::string& identifiantLivre, std::vector<Etudiant
             for (const auto& etudiant : *etudiants) {
                 if (etudiant.getId() == etudiantId) {
                     count++;
-                    std::cout << etudiant << std::endl;
+                    std::cout << etudiant;
+                    std::cout << emprunt << std::endl;
                 }
             }
         }
