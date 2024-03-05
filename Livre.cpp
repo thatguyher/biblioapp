@@ -6,6 +6,7 @@
 #include <fstream>
 
 const std::string FILE_LAST_LIVRE_NR = "lastLivreNr.txt";
+const std::string FILE_LIVRES = "livres_file.danyl"; // File to store Livre objects
 int Livre::lastLivreNr = 0;
 
 
@@ -196,4 +197,56 @@ void Livre::saveLastLivreNr() {
         outfile << lastLivreNr;
     }
     outfile.close();
+}
+
+int Livre::save(const Livre &livre) {
+    std::ofstream outFile(FILE_LIVRES, std::ios::app); // open file in append mode
+
+    if (outFile.is_open()) {
+        outFile << livre.getAuteur() << "\n"
+                << livre.getTitre() << "\n"
+                << (livre.isDisponible() ? "True" : "False") << "\n"
+                << livre.getEtat() << "\n"
+                << livre.getDateCreation() << "\n"
+                << livre.getDateDernierEmprunt() << "\n"
+                << livre.getDateRetour() << "\n"
+                << livre.getId() << "\n"
+                << "-----" << "\n";  // Add a separator between instances for readability
+        outFile.close();
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+void Livre::saveMultiple(const std::vector<Livre> &livres) {
+    for (const Livre &livre : livres) {
+        save(livre);
+    }
+}
+
+std::vector<Livre> Livre::loadMultiple() {
+    std::vector<Livre> livres;
+    std::ifstream inFile(FILE_LIVRES);
+    std::string line;
+
+    if (inFile.is_open()) {
+        while (std::getline(inFile, line)) {
+            Livre livre;
+            if (!line.empty()) livre.setAuteur(line);
+            if (std::getline(inFile, line)) livre.setTitre(line);
+            if (std::getline(inFile, line)) livre.setDisponible(line == "True");
+            if (std::getline(inFile, line)) livre.setEtat(line);
+            if (std::getline(inFile, line)) livre.setDateCreation(line);
+            if (std::getline(inFile, line)) livre.setDateDernierEmprunt(line);
+            if (std::getline(inFile, line)) livre.setDateRetour(line);
+            if (std::getline(inFile, line)) livre.setId(line);
+            livres.push_back(livre);
+            std::getline(inFile, line); // read the "-----" line (delimiter)
+        }
+        inFile.close();
+    } else {
+        // Handle error - cannot open file for reading
+    }
+    return livres;
 }

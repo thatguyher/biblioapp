@@ -20,6 +20,10 @@ public:
     static void saveLastLivreNr();
     static int lastLivreNr;
 
+    static int save(const Livre &livre);
+    static void saveMultiple(const std::vector<Livre> &livres);
+    static std::vector<Livre> loadMultiple();
+
     // Getters
     std::string getAuteur() const;
     std::string getTitre() const;

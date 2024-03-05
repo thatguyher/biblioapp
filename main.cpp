@@ -40,6 +40,9 @@ int main() {
 
 //    Livre book1;
     Livre book2("George Orwell", "1984");
+
+    Livre::save(book2);
+    Livre::save(book2);
 //    std::cout << book1;
     std::cout << book2;
 
