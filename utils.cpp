@@ -64,19 +64,20 @@ std::map<std::string, std::map<std::string, std::string>> split(const std::strin
     return command;
 }
 
-void processCommand(const std::string& command, std::vector<Livre>* livres, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts) {
+bool processCommand(const std::string &command, std::vector<Livre> *livres, std::vector<Etudiant> *etudiants,
+                    std::vector<Emprunt> *emprunts) {
     // Parse the command from the input string
     std::map<std::string, std::map<std::string, std::string>> parsedCommand = split(command, " ");
 
     if (parsedCommand.empty())
-        return;
+        return true;
 
     // Get an iterator for the map
     auto it = parsedCommand.begin();
     std::string base = it->first;
     std::map<std::string, std::string> params = it->second;
 
-    if (base == "sauvegarder"){
+    if (base == "sauvegarder") {
         sauvegarderActivite(livres, etudiants, emprunts);
         std::cout << "Sauvegarde effectuee avec succes !\n";
     }
@@ -92,7 +93,7 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         }
     }
 
-    if (base == "creer-livre"){ // Test: creer-livre -t Attaque-des-titans -a Yemp
+    if (base == "creer-livre") { // Test: creer-livre -t Attaque-des-titans -a Yemp
         std::string titre = params["t"];
         std::string auteur = params["a"];
         Livre livre(auteur, titre);
@@ -101,12 +102,12 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         std::cout << livre;
     }
 
-    if (base == "modifier-livre"){ // Example: modifier-livre -i identifiant -a NewAuthor -t NewTitle...
+    if (base == "modifier-livre") { // Example: modifier-livre -i identifiant -a NewAuthor -t NewTitle...
         std::string identifiant = params["i"];
 
         bool trouve = false;
-        for(Livre& livre : *livres) {
-            if(livre.getId() == identifiant) {
+        for (Livre &livre: *livres) {
+            if (livre.getId() == identifiant) {
                 trouve = true;
                 mettreAjourLivre(livre, params);
                 std::cout << "Livre modifie avec succes!\n";
@@ -114,7 +115,7 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
                 break;
             }
         }
-        if (!trouve){
+        if (!trouve) {
             std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
         }
     }
@@ -149,7 +150,8 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
             std::cout << "Afficher les details du livre " << id;
 
             // Displaying book details
-            auto it = std::find_if(livres->begin(), livres->end(), [&id](const Livre& livre) { return livre.getId() == id; });
+            auto it = std::find_if(livres->begin(), livres->end(),
+                                   [&id](const Livre &livre) { return livre.getId() == id; });
             if (it != livres->end()) {
                 std::cout << *it;
             } else {
@@ -192,8 +194,13 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         if (params.find("i") != params.end()) {
             std::cout << "Lister les livres empruntes par l'etudiant " << params["i"] << ".\n";
             listerEmprunts(params["i"], livres, emprunts);
+        } else if (emprunts->empty()) {
+            std::cout << "Il n'y a pas d'emprunts en ce moment.\n";
         } else {
-            std::cout << "Veuillez renseigner un identifiant d' etudiant'.\n";
+            std::cout << "Lister les emprunts.";
+            for (const Emprunt &emprunt: *emprunts) {
+                std::cout << emprunt;
+            }
         }
     }
 
@@ -201,7 +208,7 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         std::string identifiant = params["i"];
 
         bool trouve = false;
-        for (Etudiant& etudiant : *etudiants) {
+        for (Etudiant &etudiant: *etudiants) {
             if (etudiant.getId() == identifiant) {
                 trouve = true;
                 mettreAjourEtudiant(etudiant, params);
@@ -221,7 +228,8 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
             std::cout << "Afficher les details de l'etudiant " << id;
 
             // Displaying book details
-            auto it = std::find_if(etudiants->begin(), etudiants->end(), [&id](const Etudiant& etudiant) { return etudiant.getId() == id; });
+            auto it = std::find_if(etudiants->begin(), etudiants->end(),
+                                   [&id](const Etudiant &etudiant) { return etudiant.getId() == id; });
             if (it != etudiants->end()) {
                 std::cout << *it;
             } else {
@@ -235,9 +243,18 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         }
     }
 
-//    std::cout << "Processing command. Provided arguments:\n";
-//    std::cout << base << "\n";
-//    for (auto &pair: params) {
-//        std::cout << pair.first << ": " << pair.second << '\n';
-//    }
+    if (base == "quitter" || base == "q") {
+        std::cout << "> Etes vous sure de vouloire quitter l' application ? (entrez 'o' pour oui, 'n' pour non).\n";
+        std::cout << "> ";
+        std::string reponse;
+        std::getline(std::cin, reponse);
+        if (reponse == "o"){
+            sauvegarderActivite(livres, etudiants, emprunts);
+            std::cout << "Sauvegarde effectuee avec succes !\n";
+            std::cout << "A bientot ! ";
+            return false;
+        }
+    }
+
+    return true;
 }

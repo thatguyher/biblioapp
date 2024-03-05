@@ -44,13 +44,14 @@ __________._____.   .__  .__            _____                  ._.
     // Charger les emprunts de l'application depuis le fichier de sauvegarde
     std::vector<Emprunt> biblioEmprunts(Emprunt::loadMultiple());
 
-    while (true) {
+    bool go = true;
+    while (go) {
         std::cout << "\n[Biblio] Commande> ";
         std::string command;
         std::getline(std::cin, command);
 
         // Process the user's command
-        processCommand(command, &biblioLivres, &biblioEtudiants, &biblioEmprunts);
+         go = processCommand(command, &biblioLivres, &biblioEtudiants, &biblioEmprunts);
     }
 
     return 0;
