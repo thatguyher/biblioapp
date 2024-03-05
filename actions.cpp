@@ -99,6 +99,58 @@ void listerEmprunts(const std::string& identifiantEtudiant, std::vector<Livre>* 
         }
     }
     if (count == 0){
-        std::cout << "Aucun emprunt par l'étudiant avec l'identifiant" << identifiantEtudiant << std::endl;
+        std::cout << "Aucun emprunt";
+    }
+}
+
+// The Etudiant updating function
+void mettreAjourEtudiant(Etudiant& etudiant, std::map<std::string, std::string> params) {
+    if (params.find("n") != params.end()) {
+        std::string newNom = params["n"];
+        etudiant.setNom(newNom);
+    }
+
+    if (params.find("p") != params.end()) {
+        std::string newPrenom = params["p"];
+        etudiant.setPrenom(newPrenom);
+    }
+
+    if (params.find("dn") != params.end()) {
+        std::string newDateNaissance = params["dn"];
+        etudiant.setDateNaissance(newDateNaissance);
+    }
+
+    if (params.find("t") != params.end()) {
+        std::string newNumeroTelephone = params["t"];
+        etudiant.setNumeroTelephone(newNumeroTelephone);
+    }
+
+    if (params.find("addr") != params.end()) {
+        std::string newAdresseResidence = params["addr"];
+        etudiant.setAdresseResidence(newAdresseResidence);
+    }
+
+    if (params.find("m") != params.end()) {
+        std::string newNumeroMatricule = params["m"];
+        etudiant.setNumeroMatricule(newNumeroMatricule);
+    }
+
+    if (params.find("c") != params.end()) {
+        std::string newClasse = params["c"];
+        etudiant.setClasse(newClasse);
+    }
+
+    if (params.find("f") != params.end()) {
+        std::string newFiliere = params["f"];
+        etudiant.setFiliere(newFiliere);
+    }
+}
+
+void listerAllEtudiants(std::vector<Etudiant>* etudiants){
+    int i = 0;
+    for (const Etudiant& etudiant : *etudiants) {
+        i++;
+        std::cout << i << ".";
+        std::cout << etudiant << "\n";
     }
 }

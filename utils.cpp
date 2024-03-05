@@ -163,12 +163,55 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         }
     }
 
+// --- Module etudiants
+    if (base == "lister-etudiants") {
+        // If no -d argument, list all books
+        std::cout << "Lister tous les etudiants.\n";
+        listerAllEtudiants(etudiants);
+    }
+
+    if (base == "creer-etudiant") {
+        std::string nom = params["n"];
+        std::string prenom = params["p"];
+        std::string dateNaissance = params["dn"];
+        std::string numeroTelephone = params["t"];
+        std::string adresseResidence = params["addr"];
+        std::string numeroMatricule = params["m"];
+        std::string classe = params["c"];
+        std::string filiere = params["f"];
+
+        Etudiant etudiant(nom, prenom, dateNaissance, numeroTelephone, adresseResidence,
+                          nullptr, numeroMatricule, classe, filiere);
+        etudiants->push_back(etudiant);
+
+        std::cout << "Etudiant cree avec succees !";
+        std::cout << etudiant;
+    }
+
     if (base == "lister-emprunts") {
         if (params.find("i") != params.end()) {
-            std::cout << "Lister les livres empruntés par l'etudiant " << params["i"] << ".\n";
+            std::cout << "Lister les livres empruntes par l'etudiant " << params["i"] << ".\n";
             listerEmprunts(params["i"], livres, emprunts);
         } else {
             std::cout << "Veuillez renseigner un identifiant d' etudiant'.\n";
+        }
+    }
+
+    if (base == "modifier-etudiant") { // Example: modifier-etudiant -i IDENTIFIANT -n NewNom -p NewPrenom...
+        std::string identifiant = params["i"];
+
+        bool trouve = false;
+        for (Etudiant& etudiant : *etudiants) {
+            if (etudiant.getId() == identifiant) {
+                trouve = true;
+                mettreAjourEtudiant(etudiant, params);
+                std::cout << "Etudiant modifie avec succes!";
+                std::cout << etudiant;
+                break;
+            }
+        }
+        if (!trouve) {
+            std::cout << "Aucun etudiant avec l'identifiant donne n'a ete trouve.\n";
         }
     }
 

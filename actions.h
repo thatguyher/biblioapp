@@ -16,5 +16,7 @@ void mettreAjourLivre(Livre& livre, std::map<std::string, std::string> params);
 void sauvegarderActivite(std::vector<Livre>* livres, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts);
 void listerEmprunteurs(const std::string& identifiantLivre, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts);
 void listerEmprunts(const std::string& identifiantEtudiant, std::vector<Livre>* livres, std::vector<Emprunt>* emprunts);
+void mettreAjourEtudiant(Etudiant& etudiant, std::map<std::string, std::string> params);
+void listerAllEtudiants(std::vector<Etudiant>* etudiants);
 
 #endif //BIBLIOAPP_ACTIONS_H
