@@ -81,10 +81,6 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         std::cout << "Sauvegarde effectuee avec succes !\n";
     }
 
-//    if (base == "lister-livres"){
-//        listerLivres(livres);
-//    }
-
     if (base == "lister-livres") {
         if (params.find("d") != params.end()) {
             std::cout << "Afficher les livres par critere de disponibilite (disponible: " << params["d"] << ").\n";
@@ -135,6 +131,15 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
             std::cout << "Livre supprime avec succes!\n";
         } else {
             std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
+        }
+    }
+
+    if (base == "lister-emprunteurs") {
+        if (params.find("i") != params.end()) {
+            std::cout << "Lister les emprunteurs du livre " << params["i"] << ".\n";
+            listerEmprunteurs(params["i"], etudiants, emprunts);
+        } else {
+            std::cout << "Veuillez renseigner un identifiant de livre.\n";
         }
     }
 

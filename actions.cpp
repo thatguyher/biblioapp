@@ -65,3 +65,21 @@ void mettreAjourLivre(Livre& livre, std::map<std::string, std::string> params){
         livre.setDateRetour(newDateRetour);
     }
 }
+
+void listerEmprunteurs(const std::string& identifiantLivre, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts) {
+    int count = 0;
+    for (const auto& emprunt : *emprunts) {
+        if (emprunt.getLivreId() == identifiantLivre && !emprunt.isEstRetourne()) {
+            std::string etudiantId = emprunt.getEtudiantId();
+            for (const auto& etudiant : *etudiants) {
+                if (etudiant.getId() == etudiantId) {
+                    count++;
+                    std::cout << etudiant << std::endl;
+                }
+            }
+        }
+    }
+    if (count == 0){
+        std::cout << "Aucun !" << std::endl;
+    }
+}
