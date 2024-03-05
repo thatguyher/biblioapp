@@ -20,6 +20,10 @@ public:
     static void saveLastEtudiantNr();
     static int lastEtudiantNr;
 
+    static int save(const Etudiant &etd);
+    static void saveMultiple(const std::vector<Etudiant> &etudiants);
+    static std::vector<Etudiant> loadMultiple();
+
     // Surcharge de l'opérateur <<
     friend std::ostream& operator<<(std::ostream& os, const Etudiant& etudiant);
 
@@ -40,6 +44,7 @@ public:
     const std::string &getId() const;
 
     void setId(const std::string &id);
+
 
 
 private:

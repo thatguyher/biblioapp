@@ -77,3 +77,27 @@ std::ostream& operator<<(std::ostream& os, const Personne& personne) {
     personne.afficher();
     return os;
 }
+
+void Personne::setNom(const std::string &nom) {
+    Personne::nom = nom;
+}
+
+void Personne::setPrenom(const std::string &prenom) {
+    Personne::prenom = prenom;
+}
+
+void Personne::setDateNaissance(const std::string &dateNaissance) {
+    Personne::dateNaissance = dateNaissance;
+}
+
+void Personne::setNumeroTelephone(const std::string &numeroTelephone) {
+    Personne::numeroTelephone = numeroTelephone;
+}
+
+void Personne::setAdresseResidence(const std::string &adresseResidence) {
+    Personne::adresseResidence = adresseResidence;
+}
+
+void Personne::setPersonneAPrevenirEnCasDeBesoin(Personne *personneAPrevenirEnCasDeBesoin) {
+    Personne::personneAPrevenirEnCasDeBesoin = personneAPrevenirEnCasDeBesoin;
+}

@@ -28,6 +28,8 @@ int main() {
     Etudiant etudiant1("Doe", "John", "01/01/1995", "123456789", "123 Main Street", nullptr,
                        "2021001", "Informatique", "Licence");
 
+//    Etudiant::save(etudiant1);
+
 //// Création d'un étudiant
 //    Etudiant etudiant2("Doe", "John", "01/01/1995", "123456789", "123 Main Street", &personne1,
 //                       "2021001", "Informatique", "Licence");

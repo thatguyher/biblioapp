@@ -26,6 +26,18 @@ public:
     std::string getAdresseResidence() const;
     Personne* getPersonneAPrevenirEnCasDeBesoin() const;
 
+    void setNom(const std::string &nom);
+
+    void setPrenom(const std::string &prenom);
+
+    void setDateNaissance(const std::string &dateNaissance);
+
+    void setNumeroTelephone(const std::string &numeroTelephone);
+
+    void setAdresseResidence(const std::string &adresseResidence);
+
+    void setPersonneAPrevenirEnCasDeBesoin(Personne *personneAPrevenirEnCasDeBesoin);
+
     void afficher() const;
 
 protected:
