@@ -16,7 +16,7 @@ public:
     static int lastEmpruntNr;
 
     static int save(const Emprunt &emp);
-    static void saveMultiple(const std::vector<Emprunt> &emprunts);
+    static void saveMultiple(const std::vector<Emprunt>* emprunts);
     static std::vector<Emprunt> loadMultiple();
 
     const std::string &getLivreId() const;

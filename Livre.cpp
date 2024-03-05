@@ -96,11 +96,11 @@ std::string Livre::getDateRetour() const {
 }
 
 // Setters
-void Livre::setAuteur(const std::string& aAuteur) {
+void Livre::setAuteur(const std::string &aAuteur) {
     auteur = aAuteur;
 }
 
-void Livre::setTitre(const std::string& aTitre) {
+void Livre::setTitre(const std::string &aTitre) {
     titre = aTitre;
 }
 
@@ -108,19 +108,19 @@ void Livre::setDisponible(bool aDisponible) {
     disponible = aDisponible;
 }
 
-void Livre::setEtat(const std::string& aEtat) {
+void Livre::setEtat(const std::string &aEtat) {
     etat = aEtat;
 }
 
-void Livre::setDateCreation(const std::string& aDateCreation) {
+void Livre::setDateCreation(const std::string &aDateCreation) {
     dateCreation = aDateCreation;
 }
 
-void Livre::setDateDernierEmprunt(const std::string& aDateDernierEmprunt) {
+void Livre::setDateDernierEmprunt(const std::string &aDateDernierEmprunt) {
     dateDernierEmprunt = aDateDernierEmprunt;
 }
 
-void Livre::setDateRetour(const std::string& aDateRetour) {
+void Livre::setDateRetour(const std::string &aDateRetour) {
     dateRetour = aDateRetour;
 }
 
@@ -219,8 +219,13 @@ int Livre::save(const Livre &livre) {
     }
 }
 
-void Livre::saveMultiple(const std::vector<Livre> &livres) {
-    for (const Livre &livre : livres) {
+void Livre::saveMultiple(const std::vector<Livre> *livres) {
+    // Open the file in overwrite mode.
+    // Any previous content will be deleted.
+    std::ofstream outFile(FILE_LIVRES);
+    outFile.close();
+
+    for (const Livre &livre: *livres) {
         save(livre);
     }
 }

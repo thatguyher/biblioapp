@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/biblioapp.dir/Livre.cpp.obj.d"
   "CMakeFiles/biblioapp.dir/Personne.cpp.obj"
   "CMakeFiles/biblioapp.dir/Personne.cpp.obj.d"
+  "CMakeFiles/biblioapp.dir/actions.cpp.obj"
+  "CMakeFiles/biblioapp.dir/actions.cpp.obj.d"
   "CMakeFiles/biblioapp.dir/main.cpp.obj"
   "CMakeFiles/biblioapp.dir/main.cpp.obj.d"
   "CMakeFiles/biblioapp.dir/utils.cpp.obj"

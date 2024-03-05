@@ -154,8 +154,13 @@ int Etudiant::save(const Etudiant &etd) {
     }
 }
 
-void Etudiant::saveMultiple(const std::vector<Etudiant> &etudiants) {
-    for (const Etudiant &etd : etudiants) {
+void Etudiant::saveMultiple(const std::vector<Etudiant>* etudiants) {
+    // Open the file in overwrite mode.
+    // Any previous content will be deleted.
+    std::ofstream outFile(FILE_ETUDIANTS);
+    outFile.close();
+
+    for (const Etudiant &etd : *etudiants) {
         save(etd);
     }
 }

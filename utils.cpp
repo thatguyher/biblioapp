@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "actions.h"
 #include <ctime>
 #include <sstream>
 #include <map>
@@ -63,7 +64,7 @@ std::map<std::string, std::map<std::string, std::string>> split(const std::strin
     return command;
 }
 
-void processCommand(const std::string &command) {
+void processCommand(const std::string& command, std::vector<Livre>* livres, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts) {
     // Parse the command from the input string
     std::map<std::string, std::map<std::string, std::string>> parsedCommand = split(command, " ");
 
@@ -75,10 +76,71 @@ void processCommand(const std::string &command) {
     std::string base = it->first;
     std::map<std::string, std::string> params = it->second;
 
-    //TODO: replace this example code with actual handling code based on your application requirements
-    std::cout << "Processing command. Provided arguments:\n";
-    std::cout << base << "\n";
-    for (auto &pair: params) {
-        std::cout << pair.first << ": " << pair.second << '\n';
+    if (base == "sauvegarder"){
+        sauvegarderActivite(livres, etudiants, emprunts);
+        std::cout << "Sauvegarde effectuee avec succes !\n";
     }
+
+//    if (base == "lister-livres"){
+//        listerLivres(livres);
+//    }
+
+    if (base == "lister-livres") {
+        if (params.find("d") != params.end()) {
+            std::cout << "Afficher les livres par critere de disponibilite (disponible: " << params["d"] << ").\n";
+            listerLivres(livres, params["d"] == "oui");
+        } else {
+            // If no -d argument, list all books
+            std::cout << "Afficher tous les livres.\n";
+            listerAllLivres(livres);
+        }
+    }
+
+    if (base == "creer-livre"){ // Test: creer-livre -t Attaque-des-titans -a Yemp
+        std::string titre = params["t"];
+        std::string auteur = params["a"];
+        Livre livre(auteur, titre);
+        livres->push_back(livre);
+        std::cout << "Livre cree avec succees !";
+        std::cout << livre;
+    }
+
+    if (base == "modifier-livre"){ // Example: modifier-livre -i identifiant -a NewAuthor -t NewTitle...
+        std::string identifiant = params["i"];
+
+        bool trouve = false;
+        for(Livre& livre : *livres) {
+            if(livre.getId() == identifiant) {
+                trouve = true;
+                mettreAjourLivre(livre, params);
+                std::cout << "Livre modifie avec succes!\n";
+                std::cout << livre;
+                break;
+            }
+        }
+        if (!trouve){
+            std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.";
+        }
+    }
+
+    if (base == "supprimer-livre") { // Example: supprimer-livre -i IDENTIFIANT
+        std::string identifiant = params["i"];
+
+        auto end = std::remove_if(livres->begin(), livres->end(), [&identifiant](Livre &livre) {
+            return livre.getId() == identifiant;
+        });
+
+        if (end != livres->end()) {
+            livres->erase(end, livres->end());
+            std::cout << "Livre supprime avec succes!\n";
+        } else {
+            std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
+        }
+    }
+
+//    std::cout << "Processing command. Provided arguments:\n";
+//    std::cout << base << "\n";
+//    for (auto &pair: params) {
+//        std::cout << pair.first << ": " << pair.second << '\n';
+//    }
 }

@@ -80,12 +80,12 @@ clean: CMakeFiles/biblioapp.dir/clean
 CMakeFiles/biblioapp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target biblioapp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target biblioapp"
 .PHONY : CMakeFiles/biblioapp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/biblioapp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/biblioapp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\danyl\biblioapp\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/biblioapp.dir/rule

@@ -73,8 +73,13 @@ int Emprunt::save(const Emprunt &emp) {
     }
 }
 
-void Emprunt::saveMultiple(const std::vector<Emprunt> &emprunts) {
-    for (const Emprunt &emp : emprunts) {
+void Emprunt::saveMultiple(const std::vector<Emprunt>* emprunts) {
+    // Open the file in overwrite mode.
+    // Any previous content will be deleted.
+    std::ofstream outFile(FILE_EMPRUNTS);
+    outFile.close();
+
+    for (const Emprunt &emp : *emprunts) {
         save(emp);
     }
 }

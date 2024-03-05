@@ -224,6 +224,30 @@ Personne.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/Personne.cpp.s
 .PHONY : Personne.cpp.s
 
+actions.obj: actions.cpp.obj
+.PHONY : actions.obj
+
+# target to build an object file
+actions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/actions.cpp.obj
+.PHONY : actions.cpp.obj
+
+actions.i: actions.cpp.i
+.PHONY : actions.i
+
+# target to preprocess a source file
+actions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/actions.cpp.i
+.PHONY : actions.cpp.i
+
+actions.s: actions.cpp.s
+.PHONY : actions.s
+
+# target to generate assembly for a file
+actions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\biblioapp.dir\build.make CMakeFiles/biblioapp.dir/actions.cpp.s
+.PHONY : actions.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -293,6 +317,9 @@ help:
 	@echo ... Personne.obj
 	@echo ... Personne.i
 	@echo ... Personne.s
+	@echo ... actions.obj
+	@echo ... actions.i
+	@echo ... actions.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

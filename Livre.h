@@ -21,7 +21,7 @@ public:
     static int lastLivreNr;
 
     static int save(const Livre &livre);
-    static void saveMultiple(const std::vector<Livre> &livres);
+    static void saveMultiple(const std::vector<Livre>* livres);
     static std::vector<Livre> loadMultiple();
 
     // Getters

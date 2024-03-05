@@ -13,6 +13,6 @@ Emprunt preter(Etudiant* etudiant, Livre* livre, const std::string& date);
 // Function to split string str using given delimiter
 std::map<std::string, std::map<std::string, std::string>> split(const std::string &str, const std::string &delimiter);
 
-void processCommand(const std::string& command);
+void processCommand(const std::string& command, std::vector<Livre>* livres, std::vector<Etudiant>* etudiants, std::vector<Emprunt>* emprunts);
 
 #endif //BIBLIOAPP_UTILS_H

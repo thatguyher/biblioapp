@@ -106,6 +106,12 @@
 		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/Personne.h">
 			<Option target="biblioapp"/>
 		</Unit>
+		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/actions.cpp">
+			<Option target="biblioapp"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/actions.h">
+			<Option target="biblioapp"/>
+		</Unit>
 		<Unit filename="C:/Users/User/Documents/danyl/biblioapp/main.cpp">
 			<Option target="biblioapp"/>
 		</Unit>

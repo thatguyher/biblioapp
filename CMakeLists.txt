@@ -7,4 +7,6 @@ add_executable(biblioapp main.cpp Personne.cpp Personne.h Livre.cpp Livre.h Etud
         utils.h
         utils.cpp
         Emprunt.cpp
-        Emprunt.h)
+        Emprunt.h
+        actions.h
+        actions.cpp)
