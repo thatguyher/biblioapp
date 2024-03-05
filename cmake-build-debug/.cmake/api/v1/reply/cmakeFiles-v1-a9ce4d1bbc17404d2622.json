@@ -802,8 +802,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug",
-		"source" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp"
+		"build" : "C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug",
+		"source" : "C:/Users/User/Documents/danyl/biblioapp"
 	},
 	"version" : 
 	{

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"
+			"value" : "c:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -715,7 +715,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp"
+			"value" : "C:/Users/User/Documents/danyl/biblioapp"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1363,7 +1363,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp/cmake-build-debug"
+			"value" : "C:/Users/User/Documents/danyl/biblioapp/cmake-build-debug"
 		},
 		{
 			"name" : "biblioapp_IS_TOP_LEVEL",
@@ -1387,7 +1387,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/BRAD/Documents/PROJECTS/danyl/biblioapp"
+			"value" : "C:/Users/User/Documents/danyl/biblioapp"
 		}
 	],
 	"kind" : "cache",
