@@ -215,6 +215,26 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
         }
     }
 
+    if (base == "details-etudiant") {
+        if (params.find("i") != params.end()) {
+            std::string id = params["i"];
+            std::cout << "Afficher les details de l'etudiant " << id;
+
+            // Displaying book details
+            auto it = std::find_if(etudiants->begin(), etudiants->end(), [&id](const Etudiant& etudiant) { return etudiant.getId() == id; });
+            if (it != etudiants->end()) {
+                std::cout << *it;
+            } else {
+                std::cout << "Aucun etudiant avec l'identifiant donne n'a ete trouve.\n";
+            }
+
+            std::cout << "|=== Livres empruntes ===|\n";
+            listerEmprunts(params["i"], livres, emprunts);
+        } else {
+            std::cout << "Veuillez renseigner un identifiant d' etudiant.\n";
+        }
+    }
+
 //    std::cout << "Processing command. Provided arguments:\n";
 //    std::cout << base << "\n";
 //    for (auto &pair: params) {

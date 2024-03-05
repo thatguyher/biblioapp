@@ -100,7 +100,7 @@ void listerEmprunts(const std::string& identifiantEtudiant, std::vector<Livre>* 
         }
     }
     if (count == 0){
-        std::cout << "Aucun emprunt";
+        std::cout << "Aucun emprunt\n";
     }
 }
 
