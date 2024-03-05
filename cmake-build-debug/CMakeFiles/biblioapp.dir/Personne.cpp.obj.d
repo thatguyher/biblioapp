@@ -1,6 +1,6 @@
 CMakeFiles/biblioapp.dir/Personne.cpp.obj: \
- C:\Users\User\Documents\danyl\biblioapp\Personne.cpp \
- C:\Users\User\Documents\danyl\biblioapp\Personne.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.cpp \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

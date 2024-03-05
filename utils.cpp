@@ -115,7 +115,7 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
             }
         }
         if (!trouve){
-            std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.";
+            std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
         }
     }
 
@@ -140,6 +140,35 @@ void processCommand(const std::string& command, std::vector<Livre>* livres, std:
             listerEmprunteurs(params["i"], etudiants, emprunts);
         } else {
             std::cout << "Veuillez renseigner un identifiant de livre.\n";
+        }
+    }
+
+    if (base == "details-livre") {
+        if (params.find("i") != params.end()) {
+            std::string id = params["i"];
+            std::cout << "Afficher les details du livre " << id;
+
+            // Displaying book details
+            auto it = std::find_if(livres->begin(), livres->end(), [&id](const Livre& livre) { return livre.getId() == id; });
+            if (it != livres->end()) {
+                std::cout << *it;
+            } else {
+                std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
+            }
+
+            std::cout << "|=== Etudiants ayant emprunte le livre ===|\n";
+            listerEmprunteurs(id, etudiants, emprunts);
+        } else {
+            std::cout << "Veuillez renseigner un identifiant de livre.\n";
+        }
+    }
+
+    if (base == "lister-emprunts") {
+        if (params.find("i") != params.end()) {
+            std::cout << "Lister les livres empruntés par l'etudiant " << params["i"] << ".\n";
+            listerEmprunts(params["i"], livres, emprunts);
+        } else {
+            std::cout << "Veuillez renseigner un identifiant d' etudiant'.\n";
         }
     }
 

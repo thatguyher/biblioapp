@@ -83,3 +83,21 @@ void listerEmprunteurs(const std::string& identifiantLivre, std::vector<Etudiant
         std::cout << "Aucun !" << std::endl;
     }
 }
+
+void listerEmprunts(const std::string& identifiantEtudiant, std::vector<Livre>* livres, std::vector<Emprunt>* emprunts) {
+    int count = 0;
+    for (const auto& emprunt : *emprunts) {
+        if (emprunt.getEtudiantId() == identifiantEtudiant && !emprunt.isEstRetourne()) {
+            std::string livreId = emprunt.getLivreId();
+            for (const auto& livre : *livres) {
+                if (livre.getId() == livreId) {
+                    count++;
+                    std::cout << livre << std::endl;
+                }
+            }
+        }
+    }
+    if (count == 0){
+        std::cout << "Aucun emprunt par l'étudiant avec l'identifiant" << identifiantEtudiant << std::endl;
+    }
+}

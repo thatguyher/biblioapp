@@ -1,6 +1,6 @@
 CMakeFiles/biblioapp.dir/Livre.cpp.obj: \
- C:\Users\User\Documents\danyl\biblioapp\Livre.cpp \
- C:\Users\User\Documents\danyl\biblioapp\Livre.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Livre.cpp \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Livre.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -142,10 +142,10 @@ CMakeFiles/biblioapp.dir/Livre.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
- C:\Users\User\Documents\danyl\biblioapp\utils.h \
- C:\Users\User\Documents\danyl\biblioapp\Emprunt.h \
- C:\Users\User\Documents\danyl\biblioapp\Etudiant.h \
- C:\Users\User\Documents\danyl\biblioapp\Personne.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\utils.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Emprunt.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Etudiant.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \

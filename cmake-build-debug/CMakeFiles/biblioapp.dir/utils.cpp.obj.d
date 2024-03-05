@@ -1,6 +1,6 @@
 CMakeFiles/biblioapp.dir/utils.cpp.obj: \
- C:\Users\User\Documents\danyl\biblioapp\utils.cpp \
- C:\Users\User\Documents\danyl\biblioapp\utils.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\utils.cpp \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\utils.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -88,10 +88,10 @@ CMakeFiles/biblioapp.dir/utils.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
- C:\Users\User\Documents\danyl\biblioapp\Emprunt.h \
- C:\Users\User\Documents\danyl\biblioapp\Etudiant.h \
- C:\Users\User\Documents\danyl\biblioapp\Personne.h \
- C:\Users\User\Documents\danyl\biblioapp\Livre.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Emprunt.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Etudiant.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Personne.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\Livre.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
@@ -152,7 +152,7 @@ CMakeFiles/biblioapp.dir/utils.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
- C:\Users\User\Documents\danyl\biblioapp\actions.h \
+ C:\Users\BRAD\Documents\PROJECTS\danyl\biblioapp\actions.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
