@@ -270,6 +270,44 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
         }
     }
 
+    if (base == "supprimer-etudiant") { // Example: supprimer-etudiant -i IDENTIFIANT
+        std::string identifiant = params["i"];
+
+        // find and remove the student
+        auto end = std::remove_if(etudiants->begin(), etudiants->end(), [&identifiant](Etudiant &etudiant) {
+            return etudiant.getId() == identifiant;
+        });
+
+        // check if the student was found and removed
+        if (end != etudiants->end()) {
+            etudiants->erase(end, etudiants->end());
+            std::cout << "Etudiant supprime avec succes!\n";
+
+            // Now remove all loan records for this student and keep track of the id's of the deleted records
+            std::vector<std::string> deletedLoanIds;
+            auto endEmprunts = std::remove_if(emprunts->begin(), emprunts->end(), [&identifiant, &deletedLoanIds](Emprunt &emprunt) {
+                if(emprunt.getEtudiantId() == identifiant) {
+                    deletedLoanIds.push_back(emprunt.getEmpruntId());
+                    return true;
+                }
+                return false;
+            });
+
+            if(endEmprunts != emprunts->end()) {
+                emprunts->erase(endEmprunts, emprunts->end());
+                std::cout << "Les emprunts lies au livre ont ete supprimes, ci-dessous leurs identifiants." << "\n";
+                for(const auto& deletedLoanId : deletedLoanIds) {
+                    std::cout << deletedLoanId << ", " << "\n";
+                }
+                std::cout << "\n";
+            } else {
+                std::cout << "Aucun emprunt associe a l'etudiant n'a ete trouve.\n";
+            }
+        } else {
+            std::cout << "Aucun etudiant avec l'identifiant donne n'a ete trouve.\n";
+        }
+    }
+
     if (base == "preter") { // Example: preter -l IDENTIFIANT_LIVRE -e IDENTIFIANT_ETUDIANT -dr DATE_RETOUR
 
         std::string identifiantLivre = params["l"];
