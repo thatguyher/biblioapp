@@ -126,13 +126,36 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
     if (base == "supprimer-livre") { // Example: supprimer-livre -i IDENTIFIANT
         std::string identifiant = params["i"];
 
+        // find and remove the book
         auto end = std::remove_if(livres->begin(), livres->end(), [&identifiant](Livre &livre) {
             return livre.getId() == identifiant;
         });
 
+        // check if the book was found and removed
         if (end != livres->end()) {
             livres->erase(end, livres->end());
             std::cout << "Livre supprime avec succes!\n";
+
+            // Now remove all loan records for this book and keep track of the id's of the deleted records
+            std::vector<std::string> deletedLoanIds;
+            auto endEmprunts = std::remove_if(emprunts->begin(), emprunts->end(), [&identifiant, &deletedLoanIds](Emprunt &emprunt) {
+                bool toRemove = emprunt.getLivreId() == identifiant;
+                if(toRemove) {
+                    deletedLoanIds.push_back(emprunt.getEmpruntId());
+                }
+                return toRemove;
+            });
+
+            if(endEmprunts != emprunts->end()) {
+                emprunts->erase(endEmprunts, emprunts->end());
+                std::cout << "Les emprunts lies au livre ont ete supprimes, ci-dessous leurs identifiants." << "\n";
+                for(const auto& deletedLoanId : deletedLoanIds) {
+                    std::cout << deletedLoanId << ", ";
+                }
+                std::cout << "\n";
+            } else {
+                std::cout << "Aucun emprunt associe au livre n'a ete trouve.\n";
+            }
         } else {
             std::cout << "Aucun livre avec l'identifiant donne n'a ete trouve.\n";
         }
