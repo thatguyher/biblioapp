@@ -14,57 +14,30 @@ const std::string ETAT_EXPLOITABLE = "Exploitable";
 const std::string ETAT_NON_EXPLOITABLE = "Non exploitable";
 
 // Constructeur par défaut
-Livre::Livre() : disponible(true),
+Livre::Livre() : id(""),
+                 disponible(true),
                  etat(ETAT_NON_EXPLOITABLE),
-                 dateCreation(getCurrentDate()) {
-    loadLastLivreNr();
-    lastLivreNr++;
-
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastLivreNr);
-
-    // Create ID in format "LVR" + 4 digit number
-    id = "LVR" + std::string(empruntNr);
-    saveLastLivreNr();
-}
+                 dateCreation(getCurrentDate()) {}
 
 // Constructeur avec paramètres
-Livre::Livre(std::string auteur, std::string titre)
-        : auteur(std::move(auteur)),
+Livre::Livre(std::string id, std::string auteur, std::string titre)
+        : id(std::move(id)),
+          auteur(std::move(auteur)),
           titre(std::move(titre)),
           disponible(true),
           etat(ETAT_EXPLOITABLE),
-          dateCreation(getCurrentDate()) {
-    loadLastLivreNr();
-    lastLivreNr++;
-
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastLivreNr);
-
-    // Create ID in format "LVR" + 4 digit number
-    id = "LVR" + std::string(empruntNr);
-    saveLastLivreNr();
-}
+          dateCreation(getCurrentDate()) {}
 
 // Constructeur de copie
 Livre::Livre(const Livre &autre)
-        : auteur(autre.auteur),
+        : id(autre.id),
+          auteur(autre.auteur),
           titre(autre.titre),
           disponible(autre.disponible),
           etat(autre.etat),
           dateCreation(autre.dateCreation),
           dateDernierEmprunt(autre.dateDernierEmprunt),
-          dateRetour(autre.dateRetour) {
-    loadLastLivreNr();
-    lastLivreNr++;
-
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastLivreNr);
-
-    // Create ID in format "LVR" + 4 digit number
-    id = "LVR" + std::string(empruntNr);
-    saveLastLivreNr();
-}
+          dateRetour(autre.dateRetour) {}
 
 // getters
 std::string Livre::getAuteur() const {
@@ -122,6 +95,20 @@ void Livre::setDateDernierEmprunt(const std::string &aDateDernierEmprunt) {
 
 void Livre::setDateRetour(const std::string &aDateRetour) {
     dateRetour = aDateRetour;
+}
+
+std::string Livre::generateLivreId() {
+    loadLastLivreNr();
+    lastLivreNr++;
+
+    char empruntNr[5];
+    sprintf(empruntNr, "%04d", lastLivreNr);
+
+    // Create ID in format "LVR" + 4 digit number
+    std::string id = "LVR" + std::string(empruntNr);
+    saveLastLivreNr();
+
+    return id;
 }
 
 void Livre::afficher() const {
@@ -203,7 +190,8 @@ int Livre::save(const Livre &livre) {
     std::ofstream outFile(FILE_LIVRES, std::ios::app); // open file in append mode
 
     if (outFile.is_open()) {
-        outFile << livre.getAuteur() << "\n"
+        outFile << livre.getId() << "\n"
+                << livre.getAuteur() << "\n"
                 << livre.getTitre() << "\n"
                 << (livre.isDisponible() ? "True" : "False") << "\n"
                 << livre.getEtat() << "\n"
@@ -238,7 +226,8 @@ std::vector<Livre> Livre::loadMultiple() {
     if (inFile.is_open()) {
         while (std::getline(inFile, line)) {
             Livre livre;
-            if (!line.empty()) livre.setAuteur(line);
+            if (!line.empty()) livre.setId(line);
+            if (std::getline(inFile, line)) livre.setAuteur(line);
             if (std::getline(inFile, line)) livre.setTitre(line);
             if (std::getline(inFile, line)) livre.setDisponible(line == "True");
             if (std::getline(inFile, line)) livre.setEtat(line);

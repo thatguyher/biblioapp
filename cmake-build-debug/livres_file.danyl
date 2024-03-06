@@ -1,27 +1,50 @@
-George Orwell
-1984
+LVR0001
+
+
 True
 Exploitable
-05/03/2024
+06/03/2024
 
 
-LVR0526
+LVR0001
 -----
-Yemp
-Attaque-des-titans
-False
-Exploitable
-05/03/2024
+LVR0002
 
 
-LVR0527
------
-Sank
-Aller-au-champ
 True
-non-exploitable
-05/03/2024
+Exploitable
+06/03/2024
 
 
-LVR0525
+LVR0002
+-----
+LVR0003
+
+
+True
+Exploitable
+06/03/2024
+
+
+LVR0003
+-----
+LVR0004
+
+
+True
+Exploitable
+06/03/2024
+
+
+LVR0004
+-----
+LVR0005
+
+
+True
+Exploitable
+06/03/2024
+
+
+LVR0005
 -----

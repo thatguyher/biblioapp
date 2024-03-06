@@ -12,12 +12,13 @@ class Livre {
 public:
 //    Constructeurs
     Livre();
-    Livre(std::string auteur, std::string titre);
+    Livre(std::string id, std::string auteur, std::string titre);
     // Constructeur de copie
     Livre(const Livre &autre);
 
     static void loadLastLivreNr();
     static void saveLastLivreNr();
+    static std::string generateLivreId();
     static int lastLivreNr;
 
     static int save(const Livre &livre);

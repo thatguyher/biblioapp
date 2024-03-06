@@ -84,11 +84,11 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
 
     if (base == "lister-livres") {
         if (params.find("d") != params.end()) {
-            std::cout << "Afficher les livres par critere de disponibilite (disponible: " << params["d"] << ").\n";
+            std::cout << "Lister les livres par critere de disponibilite (disponible: " << params["d"] << ").\n";
             listerLivres(livres, params["d"] == "oui");
         } else {
             // If no -d argument, list all books
-            std::cout << "Afficher tous les livres.\n";
+            std::cout << "Lister tous les livres.\n";
             listerAllLivres(livres);
         }
     }
@@ -96,7 +96,9 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
     if (base == "creer-livre") { // Test: creer-livre -t Attaque-des-titans -a Yemp
         std::string titre = params["t"];
         std::string auteur = params["a"];
-        Livre livre(auteur, titre);
+        std::string id = Livre::generateLivreId();
+
+        Livre livre(id, auteur, titre);
         livres->push_back(livre);
         std::cout << "Livre cree avec succees !";
         std::cout << livre;

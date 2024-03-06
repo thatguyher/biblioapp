@@ -40,11 +40,8 @@ Etudiant::Etudiant(const Etudiant &autre)
           filiere(autre.filiere) {}
 
 std::string Etudiant::generateEtudiantId() {
-    std::cout << "before load id: " << lastEtudiantNr;
     loadLastEtudiantNr();
-    std::cout << "after load id: " << lastEtudiantNr;
     lastEtudiantNr++;
-    std::cout << "generated new id: " << lastEtudiantNr;
     char empruntNr[5];
     sprintf(empruntNr, "%04d", lastEtudiantNr);
 
