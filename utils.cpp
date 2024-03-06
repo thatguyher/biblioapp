@@ -19,7 +19,7 @@ Emprunt preter(Etudiant *etudiant, Livre *livre, const std::string &dateRetour) 
     Emprunt newEmprunt(etudiant->getId(), livre->getId(), dateRetour);
     int statutEmprunt = livre->emprunter(newEmprunt.getEmpruntId(), dateRetour);
     if (statutEmprunt == 0) {
-        Emprunt::save(newEmprunt);
+//        Emprunt::save(newEmprunt);
         std::cout << "\n> Le livre " + livre->getId() + " a ete prete a l'etudiant " + etudiant->getId() + "! ";
         std::cout << newEmprunt;
     } else if (statutEmprunt == 1) {
@@ -241,6 +241,52 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
         } else {
             std::cout << "Veuillez renseigner un identifiant d' etudiant.\n";
         }
+    }
+
+    if (base == "preter") { // Example: preter -l IDENTIFIANT_LIVRE -e IDENTIFIANT_ETUDIANT -dr DATE_RETOUR
+
+        std::string identifiantLivre = params["l"];
+        std::string identifiantEtudiant = params["e"];
+        std::string dateRetour = params["dr"];
+
+        // Validate the book ID
+        auto itLivre = std::find_if(livres->begin(), livres->end(),
+                                    [&identifiantLivre](const Livre& livre) {
+                                        return livre.getId() == identifiantLivre;
+                                    });
+
+        if (itLivre == livres->end()) {
+            std::cout << "Aucun livre avec l'identifiant " << identifiantLivre << " n'a ete trouve.\n";
+            return true;
+        }
+
+        // Validate the student ID
+        auto itEtudiant = std::find_if(etudiants->begin(), etudiants->end(),
+                                       [&identifiantEtudiant](const Etudiant& etudiant) {
+                                           return etudiant.getId() == identifiantEtudiant;
+                                       });
+
+        if (itEtudiant == etudiants->end()) {
+            std::cout << "Aucun etudiant avec l'identifiant " << identifiantEtudiant << " n'a ete trouve.\n";
+            return true;
+        }
+
+        // Create a new loan
+        Emprunt newEmprunt(itEtudiant->getId(), itLivre->getId(), dateRetour);
+        int statutEmprunt = itLivre->emprunter(newEmprunt.getEmpruntId(), dateRetour);
+        if (statutEmprunt == 0) {
+            std::cout << "Le livre " + itLivre->getId() + " a ete prete a l'etudiant " + itEtudiant->getId() + "! ";
+            std::cout << newEmprunt;
+        } else if (statutEmprunt == 1) {
+            std::cout << "Vous ne pouvez pas preter Le livre " + itLivre->getId() +
+                         " car le livre n'est pas disponible  !\n";
+        } else { // statutEmprunt == 2
+            std::cout << "Vous ne pouvez pas preter Le livre " + itLivre->getId() +
+                         " car le livre n'est pas en bon etat ("  << itLivre->getEtat() << ") !\n";
+        }
+
+        // Save the loan in the list of loans
+        emprunts->push_back(newEmprunt);
     }
 
     if (base == "quitter" || base == "q") {
