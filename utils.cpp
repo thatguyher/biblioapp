@@ -289,6 +289,46 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
         emprunts->push_back(newEmprunt);
     }
 
+    if (base == "recuperer") { // Exemple: recuperer -l IDENTIFIANT_LIVRE -e IDENTIFIANT_ETUDIANT
+
+        std::string identifiantLivre = params["l"];
+        std::string identifiantEtudiant = params["e"];
+
+        // Find the correct loan
+        auto itEmprunt = std::find_if(emprunts->begin(), emprunts->end(),
+                                      [&identifiantLivre, &identifiantEtudiant](const Emprunt& emprunt) {
+                                          return emprunt.getLivreId() == identifiantLivre
+                                                 && emprunt.getEtudiantId() == identifiantEtudiant
+                                                 && !emprunt.isEstRetourne();
+                                      });
+
+        if (itEmprunt == emprunts->end()) {
+            std::cout << "Aucun emprunt en cours correspondant aux identifiants fournis n'a ete trouve.\n";
+            return true;
+        }
+
+        // Validate that the book has not been returned yet
+        if (itEmprunt->isEstRetourne()) {
+            std::cout << "Ce livre a deja ete retourne.\n";
+            return true;
+        }
+
+        // Update the loan to be returned
+        itEmprunt->setEstRetourne(true);
+        std::cout << "Le livre " + itEmprunt->getLivreId()
+                     + " a ete retourne par l'etudiant " + itEmprunt->getEtudiantId() + " avec succes !\n";
+
+        // Update the book to be available
+        auto itLivre = std::find_if(livres->begin(), livres->end(),
+                                    [&identifiantLivre](const Livre& livre) {
+                                        return livre.getId() == identifiantLivre;
+                                    });
+
+        if (itLivre != livres->end()) {
+            itLivre->retourner();
+        }
+    }
+
     if (base == "quitter" || base == "q") {
         std::cout << "> Etes vous sure de vouloire quitter l' application ? (entrez 'o' pour oui, 'n' pour non).\n";
         std::cout << "> ";
