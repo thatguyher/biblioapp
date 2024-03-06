@@ -9,34 +9,28 @@ const std::string FILE_EMPRUNTS = "emprunts_file.danyl";
 int Emprunt::lastEmpruntNr = 0;
 
 // Constructeur par defaut
-Emprunt::Emprunt() : dateEmprunt(getCurrentDate()), estRetourne(0) {
-    loadLastEmpruntNr();
-    // Increase the counter and format it as a string with leading zeros
-    lastEmpruntNr++;
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastEmpruntNr);
+Emprunt::Emprunt() : empruntId(""), dateEmprunt(getCurrentDate()), estRetourne(0) {}
 
-    // Create ID in format "EMP" + 4 digit number
-    empruntId = "EMP" + std::string(empruntNr);
-    saveLastEmpruntNr();
-}
-
-Emprunt::Emprunt(std::string idEtudiant, std::string idLivre, std::string  aDateRetour)
-        : etudiantId(std::move(idEtudiant)),
+Emprunt::Emprunt(std::string id, std::string idEtudiant, std::string idLivre, std::string  aDateRetour)
+        : empruntId(std::move(id)),
+        etudiantId(std::move(idEtudiant)),
           livreId(std::move(idLivre)),
           dateEmprunt(getCurrentDate()),
           dateRetour(std::move(aDateRetour)),
-          estRetourne(false) {
+          estRetourne(false) {}
 
+std::string Emprunt::generateEmpruntId() {
     loadLastEmpruntNr();
-    // Increase the counter and format it as a string with leading zeros
     lastEmpruntNr++;
+
     char empruntNr[5];
     sprintf(empruntNr, "%04d", lastEmpruntNr);
 
     // Create ID in format "EMP" + 4 digit number
-    empruntId = "EMP" + std::string(empruntNr);
+    std::string id = "EMP" + std::string(empruntNr);
     saveLastEmpruntNr();
+
+    return id;
 }
 
 void Emprunt::loadLastEmpruntNr() {
@@ -59,7 +53,8 @@ int Emprunt::save(const Emprunt &emp) {
     std::ofstream outFile(FILE_EMPRUNTS, std::ios::app); // open file in append mode
 
     if (outFile.is_open()) {
-        outFile << emp.getEtudiantId() << "\n"
+        outFile << emp.getEmpruntId() << "\n"
+                << emp.getEtudiantId() << "\n"
                 << emp.getLivreId() << "\n"
                 << emp.getDateEmprunt() << "\n"
                 << emp.getDateRetour() << "\n"
@@ -92,7 +87,8 @@ std::vector<Emprunt> Emprunt::loadMultiple() {
     if (inFile.is_open()) {
         while (std::getline(inFile, line)) {
             Emprunt emp;
-            if (!line.empty()) emp.setEtudiantId(line);
+            if (!line.empty()) emp.setEmpruntId(line);
+            if (std::getline(inFile, line)) emp.setEtudiantId(line);
             if (std::getline(inFile, line)) emp.setLivreId(line);
             if (std::getline(inFile, line)) emp.setDateEmprunt(line);
             if (std::getline(inFile, line)) emp.setDateRetour(line);

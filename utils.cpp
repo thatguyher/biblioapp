@@ -16,7 +16,8 @@ std::string getCurrentDate() {
 }
 
 Emprunt preter(Etudiant *etudiant, Livre *livre, const std::string &dateRetour) {
-    Emprunt newEmprunt(etudiant->getId(), livre->getId(), dateRetour);
+    std::string  empruntId = Emprunt::generateEmpruntId();
+    Emprunt newEmprunt(empruntId, etudiant->getId(), livre->getId(), dateRetour);
     int statutEmprunt = livre->emprunter(newEmprunt.getEmpruntId(), dateRetour);
     if (statutEmprunt == 0) {
 //        Emprunt::save(newEmprunt);
@@ -275,7 +276,8 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
         }
 
         // Create a new loan
-        Emprunt newEmprunt(itEtudiant->getId(), itLivre->getId(), dateRetour);
+        std::string  empruntId = Emprunt::generateEmpruntId();
+        Emprunt newEmprunt(empruntId, itEtudiant->getId(), itLivre->getId(), dateRetour);
         int statutEmprunt = itLivre->emprunter(newEmprunt.getEmpruntId(), dateRetour);
         if (statutEmprunt == 0) {
             std::cout << "Le livre " + itLivre->getId() + " a ete prete a l'etudiant " + itEtudiant->getId() + "! ";

@@ -8,10 +8,11 @@
 class Emprunt {
 public:
     Emprunt();
-    Emprunt(std::string idEtudiant, std::string idLivre, std::string  aDateRetour);
+    Emprunt(std::string id, std::string idEtudiant, std::string idLivre, std::string  aDateRetour);
 
     static void loadLastEmpruntNr();
     static void saveLastEmpruntNr();
+    static std::string generateEmpruntId();
 
     static int lastEmpruntNr;
 
