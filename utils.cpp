@@ -173,6 +173,7 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
     }
 
     if (base == "creer-etudiant") {
+        std::string etudiantId = Etudiant::generateEtudiantId();
         std::string nom = params["n"];
         std::string prenom = params["p"];
         std::string dateNaissance = params["dn"];
@@ -182,7 +183,7 @@ bool processCommand(const std::string &command, std::vector<Livre> *livres, std:
         std::string classe = params["c"];
         std::string filiere = params["f"];
 
-        Etudiant etudiant(nom, prenom, dateNaissance, numeroTelephone, adresseResidence,
+        Etudiant etudiant(etudiantId, nom, prenom, dateNaissance, numeroTelephone, adresseResidence,
                           nullptr, numeroMatricule, classe, filiere);
         etudiants->push_back(etudiant);
 

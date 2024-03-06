@@ -8,7 +8,7 @@
 class Etudiant : public Personne {
 public:
     Etudiant();
-    Etudiant(std::string nom, std::string prenom, std::string dateNaissance,
+    Etudiant(std::string id, std::string nom, std::string prenom, std::string dateNaissance,
              std::string numeroTelephone, std::string adresseResidence,
              Personne* personneAPrevenirEnCasDeBesoin,
              std::string numeroMatricule, std::string classe, std::string filiere);
@@ -18,6 +18,7 @@ public:
 
     static void loadLastEtudiantNr();
     static void saveLastEtudiantNr();
+    static std::string generateEtudiantId();
     static int lastEtudiantNr;
 
     static int save(const Etudiant &etd);

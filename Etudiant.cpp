@@ -10,52 +10,48 @@ const std::string FILE_ETUDIANTS = "etudiants_file.danyl";
 int Etudiant::lastEtudiantNr = 0;
 
 Etudiant::Etudiant()
-        : numeroMatricule(""), classe(""), filiere("") {
-    loadLastEtudiantNr();
-    lastEtudiantNr++;
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastEtudiantNr);
+        :
+        id(""),
+        numeroMatricule(""),
+        classe(""),
+        filiere("") {}
 
-    // Create ID in format "ETD" + 4 digit number
-    id = "ETD" + std::string(empruntNr);
-    saveLastEtudiantNr();
-}
-
-Etudiant::Etudiant(std::string nom, std::string prenom, std::string dateNaissance,
+Etudiant::Etudiant(std::string id, std::string nom, std::string prenom, std::string dateNaissance,
                    std::string numeroTelephone, std::string adresseResidence,
                    Personne *personneAPrevenirEnCasDeBesoin,
                    std::string numeroMatricule, std::string classe, std::string filiere)
-        : Personne(std::move(nom),
+        : id(std::move(id)),
+          Personne(std::move(nom),
                    std::move(prenom),
                    std::move(dateNaissance),
                    std::move(numeroTelephone),
                    std::move(adresseResidence),
                    personneAPrevenirEnCasDeBesoin),
-          numeroMatricule(std::move(numeroMatricule)), classe(std::move(classe)), filiere(std::move(filiere)) {
-    loadLastEtudiantNr();
-    lastEtudiantNr++;
-    char empruntNr[5];
-    sprintf(empruntNr, "%04d", lastEtudiantNr);
-
-    // Create ID in format "ETD" + 4 digit number
-    id = "ETD" + std::string(empruntNr);
-    saveLastEtudiantNr();
-}
+          numeroMatricule(std::move(numeroMatricule)),
+          classe(std::move(classe)),
+          filiere(std::move(filiere)) {}
 
 // Constructeur de copie
 Etudiant::Etudiant(const Etudiant &autre)
         : Personne(autre),
+          id(autre.id),
           numeroMatricule(autre.numeroMatricule),
           classe(autre.classe),
-          filiere(autre.filiere) {
+          filiere(autre.filiere) {}
+
+std::string Etudiant::generateEtudiantId() {
+    std::cout << "before load id: " << lastEtudiantNr;
     loadLastEtudiantNr();
+    std::cout << "after load id: " << lastEtudiantNr;
     lastEtudiantNr++;
+    std::cout << "generated new id: " << lastEtudiantNr;
     char empruntNr[5];
     sprintf(empruntNr, "%04d", lastEtudiantNr);
 
-    // Create ID in format "ETD" + 4 digit number
-    id = "ETD" + std::string(empruntNr);
+    std::string id = "ETD" + std::string(empruntNr);
     saveLastEtudiantNr();
+
+    return id;
 }
 
 void Etudiant::afficher() const {
@@ -138,7 +134,8 @@ int Etudiant::save(const Etudiant &etd) {
     std::ofstream outFile(FILE_ETUDIANTS, std::ios::app); // open file in append mode
 
     if (outFile.is_open()) {
-        outFile << etd.getNom() << "\n"
+        outFile << etd.getId() << "\n"
+                << etd.getNom() << "\n"
                 << etd.getPrenom() << "\n"
                 << etd.getDateNaissance() << "\n"
                 << etd.getNumeroTelephone() << "\n"
@@ -148,19 +145,19 @@ int Etudiant::save(const Etudiant &etd) {
                 << etd.getFiliere() << "\n"
                 << "-----" << "\n";   // Add a separator between instances for readability
         outFile.close();
-        return  0;
+        return 0;
     } else {
-        return  1;
+        return 1;
     }
 }
 
-void Etudiant::saveMultiple(const std::vector<Etudiant>* etudiants) {
+void Etudiant::saveMultiple(const std::vector<Etudiant> *etudiants) {
     // Open the file in overwrite mode.
     // Any previous content will be deleted.
     std::ofstream outFile(FILE_ETUDIANTS);
     outFile.close();
 
-    for (const Etudiant &etd : *etudiants) {
+    for (const Etudiant &etd: *etudiants) {
         save(etd);
     }
 }
@@ -173,7 +170,8 @@ std::vector<Etudiant> Etudiant::loadMultiple() {
     if (inFile.is_open()) {
         while (std::getline(inFile, line)) {
             Etudiant etd;
-            if (!line.empty()) etd.setNom(line);
+            if (!line.empty()) etd.setId(line);
+            if (std::getline(inFile, line)) etd.setNom(line);
             if (std::getline(inFile, line)) etd.setPrenom(line);
             if (std::getline(inFile, line)) etd.setDateNaissance(line);
             if (std::getline(inFile, line)) etd.setNumeroTelephone(line);
@@ -190,4 +188,8 @@ std::vector<Etudiant> Etudiant::loadMultiple() {
     }
 
     return etudiants;
+}
+
+void Etudiant::setId(const std::string &newId) {
+    id = newId;
 }
