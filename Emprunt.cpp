@@ -5,7 +5,7 @@
 #include <fstream>
 
 const std::string FILE_LAST_EMPRUNT_NR = "lastEmpruntNr.txt";
-const std::string FILE_EMPRUNTS = "emprunts_file.danyl";
+const std::string FILE_EMPRUNTS = "emprunts_file.DAAJ";
 int Emprunt::lastEmpruntNr = 0;
 
 // Constructeur par defaut

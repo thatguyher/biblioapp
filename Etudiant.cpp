@@ -6,7 +6,7 @@
 #include <fstream>
 
 const std::string FILE_LAST_ETUDIANT_NR = "lastEtudiantNr.txt";
-const std::string FILE_ETUDIANTS = "etudiants_file.danyl";
+const std::string FILE_ETUDIANTS = "etudiants_file.DAAJ";
 int Etudiant::lastEtudiantNr = 0;
 
 Etudiant::Etudiant()

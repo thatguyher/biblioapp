@@ -6,7 +6,7 @@
 #include <fstream>
 
 const std::string FILE_LAST_LIVRE_NR = "lastLivreNr.txt";
-const std::string FILE_LIVRES = "livres_file.danyl"; // File to store Livre objects
+const std::string FILE_LIVRES = "livres_file.DAAJ"; // File to store Livre objects
 int Livre::lastLivreNr = 0;
 
 
