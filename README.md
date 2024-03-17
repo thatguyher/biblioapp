@@ -1,6 +1,11 @@
-## Ceci est un mini programme de gestion de bibliothèque sous la forme d'un interprêteur de commandes.
+## Un mini programme de gestion de bibliothèque sous la forme d'un interprêteur de commandes.
 
-### Guide d'utilisation
+Ce programme offre des fonctionnalités de gestion d'une bibliothèque d'un établissement scolaire:
+- Gestion des livres,
+- Gestion des étudiants,
+- Gestion de la location et du retour des livres par les étudiants.
+
+### Guide d'utilisation des commandes
 
 - documentation ou doc ou aide: Afficher la documentation.
 
